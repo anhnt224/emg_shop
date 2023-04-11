@@ -44,7 +44,7 @@ class Demo extends StatelessWidget {
             width: 500,
             height: 500,
             color: Colors.black12,
-            child: const StackDemo()),
+            child: const IndexedStackDemo()),
       ),
     );
   }
