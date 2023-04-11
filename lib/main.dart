@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -56,7 +55,7 @@ class Demo extends StatelessWidget {
           maxLines: 2,
         ),
         RichText(
-          text: TextSpan(
+          text: const TextSpan(
             text: 'Chao mung',
             style: TextStyle(
               color: Colors.blueAccent,
@@ -78,11 +77,6 @@ class Demo extends StatelessWidget {
                   fontSize: 20,
                   fontWeight: FontWeight.normal,
                 ),
-                recognizer: TapGestureRecognizer()
-                  ..onTap = () {
-                    launch(
-                        'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
-                  },
               ),
               WidgetSpan(
                 child: SizedBox(
@@ -100,6 +94,17 @@ class Demo extends StatelessWidget {
             ],
           ),
         ),
+        Container(
+          width: 200,
+          height: 400,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: NetworkImage(
+                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                fit: BoxFit.cover),
+          ),
+          child: const Text('a'),
+        )
       ]),
     );
   }
