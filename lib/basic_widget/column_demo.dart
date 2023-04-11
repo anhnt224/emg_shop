@@ -5,13 +5,13 @@ class ColumnDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisSize: MainAxisSize.max,
+    return Wrap(
+      spacing: 16,
+      runSpacing: 16, // hang
+      runAlignment: WrapAlignment.spaceBetween,
       children: [
         Container(
-          width: 100,
+          width: 200,
           height: 100,
           color: Colors.amberAccent,
         ),
@@ -21,9 +21,16 @@ class ColumnDemo extends StatelessWidget {
           color: Colors.blueAccent,
         ),
         Container(
-          width: 200,
+          width: 100,
           height: 100,
-          color: Colors.redAccent,
+          color: Colors.amberAccent,
+        ),
+        Expanded(
+          child: Container(
+            width: 100,
+            height: 100, // remove
+            color: Colors.redAccent,
+          ),
         )
       ],
     );

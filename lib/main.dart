@@ -40,9 +40,12 @@ class Demo extends StatelessWidget {
         title: const Text('Title'),
       ),
       body: Center(
-        child: Container(
-          color: Colors.black12,
-          child: const ColumnDemo(),
+        child: Expanded(
+          child: Container(
+            color: Colors.black12,
+            height: double.infinity,
+            child: const ColumnDemo(),
+          ),
         ),
       ),
     );
