@@ -1,3 +1,4 @@
+import 'package:emg_shop/basic_widget/container_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,19 +36,9 @@ class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Title'),
-      ),
-      body: Container(
-        width: 100,
-        height: 200,
-        padding: const EdgeInsets.all(16),
-        margin: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-            color: Colors.blue[100],
-            border: Border.all(color: Colors.black38, width: 16)),
-        child: const Text('Hello'),
-      ),
-    );
+        appBar: AppBar(
+          title: const Text('Title'),
+        ),
+        body: const ContainerDemo());
   }
 }
