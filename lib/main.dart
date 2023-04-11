@@ -1,4 +1,4 @@
-import 'package:emg_shop/basic_widget/stack_demo.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -39,13 +39,68 @@ class Demo extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Title'),
       ),
-      body: Center(
-        child: Container(
-            width: 500,
-            height: 500,
-            color: Colors.black12,
-            child: const IndexedStackDemo()),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(Icons.add),
       ),
+      body: Column(children: [
+        const Text(
+          'Chao mung Anh den voi khoa flutter.',
+          style: TextStyle(
+            color: Colors.redAccent,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            decoration: TextDecoration.underline,
+            overflow: TextOverflow.ellipsis,
+          ),
+          maxLines: 2,
+        ),
+        RichText(
+          text: TextSpan(
+            text: 'Chao mung',
+            style: TextStyle(
+              color: Colors.blueAccent,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              decoration: TextDecoration.underline,
+              overflow: TextOverflow.ellipsis,
+            ),
+            children: [
+              WidgetSpan(
+                child: SizedBox(
+                  width: 16,
+                ),
+              ),
+              TextSpan(
+                text: 'Anh',
+                style: TextStyle(
+                  color: Colors.blueAccent,
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                ),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    launch(
+                        'https://docs.flutter.io/flutter/services/UrlLauncher-class.html');
+                  },
+              ),
+              WidgetSpan(
+                child: SizedBox(
+                  width: 16,
+                ),
+              ),
+              TextSpan(
+                text: 'den voi khoa flutter',
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 20,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ]),
     );
   }
 }
