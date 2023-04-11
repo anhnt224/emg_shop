@@ -1,4 +1,4 @@
-import 'package:emg_shop/basic_widget/container_demo.dart';
+import 'package:emg_shop/basic_widget/column_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,9 +36,15 @@ class Demo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Title'),
+      appBar: AppBar(
+        title: const Text('Title'),
+      ),
+      body: Center(
+        child: Container(
+          color: Colors.black12,
+          child: const ColumnDemo(),
         ),
-        body: const ContainerDemo());
+      ),
+    );
   }
 }
