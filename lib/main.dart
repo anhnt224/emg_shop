@@ -1,4 +1,4 @@
-import 'package:emg_shop/basic_widget/column_demo.dart';
+import 'package:emg_shop/basic_widget/stack_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -40,13 +40,11 @@ class Demo extends StatelessWidget {
         title: const Text('Title'),
       ),
       body: Center(
-        child: Expanded(
-          child: Container(
+        child: Container(
+            width: 500,
+            height: 500,
             color: Colors.black12,
-            height: double.infinity,
-            child: const ColumnDemo(),
-          ),
-        ),
+            child: const StackDemo()),
       ),
     );
   }
