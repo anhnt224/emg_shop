@@ -94,16 +94,36 @@ class Demo extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          width: 200,
-          height: 400,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: NetworkImage(
-                    'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                fit: BoxFit.cover),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(16),
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(
+                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                  fit: BoxFit.cover),
+            ),
+            child: const Text('a'),
           ),
-          child: const Text('a'),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            print('Click');
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.amberAccent,
+            padding: const EdgeInsets.all(32),
+            side: const BorderSide(color: Colors.blue, width: 4),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          child: const Text('Click here'),
+        ),
+        const TextField(
+          style: TextStyle(color: Colors.red),
         )
       ]),
     );
