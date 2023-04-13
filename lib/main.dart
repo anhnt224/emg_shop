@@ -1,3 +1,4 @@
+import 'package:emg_shop/widget/stateless_demo.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -24,108 +25,35 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const Demo(),
+      home: const HomePage(),
     );
   }
 }
 
-class Demo extends StatelessWidget {
-  const Demo({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Title'),
+        title: const Text('Home Page'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
+      body: Column(
+        children: [
+          Container(
+            child: const AuthTitle(
+              title: 'SignUp',
+              subTitle: 'Create your Account!',
+            ),
+          ),
+          Container(
+            child: const AuthTitle(
+                title: 'Welcome',
+                subTitle: 'Hello, let sign into your account!'),
+          ),
+        ],
       ),
-      body: Column(children: [
-        const Text(
-          'Chao mung Anh den voi khoa flutter.',
-          style: TextStyle(
-            color: Colors.redAccent,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            decoration: TextDecoration.underline,
-            overflow: TextOverflow.ellipsis,
-          ),
-          maxLines: 2,
-        ),
-        RichText(
-          text: const TextSpan(
-            text: 'Chao mung',
-            style: TextStyle(
-              color: Colors.blueAccent,
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-              overflow: TextOverflow.ellipsis,
-            ),
-            children: [
-              WidgetSpan(
-                child: SizedBox(
-                  width: 16,
-                ),
-              ),
-              TextSpan(
-                text: 'Anh',
-                style: TextStyle(
-                  color: Colors.blueAccent,
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-              WidgetSpan(
-                child: SizedBox(
-                  width: 16,
-                ),
-              ),
-              TextSpan(
-                text: 'den voi khoa flutter',
-                style: TextStyle(
-                  color: Colors.black54,
-                  fontSize: 20,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-            ],
-          ),
-        ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(16),
-          child: Container(
-            width: 200,
-            height: 200,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: NetworkImage(
-                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
-                  fit: BoxFit.cover),
-            ),
-            child: const Text('a'),
-          ),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            print('Click');
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.amberAccent,
-            padding: const EdgeInsets.all(32),
-            side: const BorderSide(color: Colors.blue, width: 4),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-          child: const Text('Click here'),
-        ),
-        const TextField(
-          style: TextStyle(color: Colors.red),
-        )
-      ]),
     );
   }
 }
