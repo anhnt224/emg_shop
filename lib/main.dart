@@ -1,5 +1,4 @@
-import 'package:emg_shop/widget/stateful_demo.dart';
-import 'package:emg_shop/widget/stateless_demo.dart';
+import 'package:emg_shop/widget/stateful_life_cycle.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,17 +30,38 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _visible = true;
+
+  void _handleHideAndShow() {
+    setState(() {
+      _visible = !_visible;
+    });
+  }
+
+  final Widget counter = const LifeCycle();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Home Page'),
-        ),
-        body: Container(
-          child: const AddProduct(),
-        ));
+      appBar: AppBar(
+        title: const Text('Home Page'),
+      ),
+      body: Column(
+        children: [
+          _visible ? const LifeCycle() : Container(),
+          ElevatedButton(
+              onPressed: _handleHideAndShow,
+              child: Text(_visible ? 'Hide' : 'Show'))
+        ],
+      ),
+    );
   }
 }
