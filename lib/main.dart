@@ -1,4 +1,4 @@
-import 'package:emg_shop/widget/stateful_life_cycle.dart';
+import 'package:emg_shop/navigation/pages/page1.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,43 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  bool _visible = true;
-
-  void _handleHideAndShow() {
-    setState(() {
-      _visible = !_visible;
-    });
-  }
-
-  final Widget counter = const LifeCycle();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home Page'),
-      ),
-      body: Column(
-        children: [
-          _visible ? const LifeCycle() : Container(),
-          ElevatedButton(
-              onPressed: _handleHideAndShow,
-              child: Text(_visible ? 'Hide' : 'Show'))
-        ],
-      ),
+      home: const Page1(),
     );
   }
 }
