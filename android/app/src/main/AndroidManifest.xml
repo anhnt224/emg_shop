@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.emglab.emg_shop">
-   <application
+    <use-permission android:name="android.permission.INTERNET"/>
+    <application
         android:label="emg_shop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
