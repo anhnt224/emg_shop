@@ -6,8 +6,11 @@ import 'package:emg_shop/modules/auth/widgets/auth_title.dart';
 import 'package:emg_shop/modules/auth/widgets/login_form.dart';
 import 'package:emg_shop/route/route_name.dart';
 import 'package:emg_shop/themes/app_colors.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../bloc/app_cubit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -29,7 +32,10 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  void _navigateToMain(BuildContext context) {
+  void _navigateToMain(BuildContext context, User user) {
+    final appCubit = context.read<AppCubit>();
+    appCubit.authenticate(user, "token 12345678");
+
     Navigator.of(context).pushNamedAndRemoveUntil(
         RouteName.main, (route) => route.settings.name == RouteName.main);
   }
@@ -76,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                 }
                 if (state is AuthStateLoginSuccess) {
                   _hideLoadingDialog(context);
-                  _navigateToMain(context);
+                  _navigateToMain(context, state.user!);
                 }
               },
               builder: (context, state) {

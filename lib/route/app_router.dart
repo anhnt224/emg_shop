@@ -1,3 +1,4 @@
+import 'package:emg_shop/bloc/app_cubit.dart';
 import 'package:emg_shop/modules/auth/bloc/auth_cubit.dart';
 import 'package:emg_shop/modules/auth/screens/login_screen.dart';
 import 'package:emg_shop/modules/auth/screens/main_screen.dart';
@@ -12,12 +13,19 @@ class AppRouter {
   AppRouter._instance();
   static final AppRouter instance = AppRouter._instance();
 
+  final AppCubit _appCubit = AppCubit();
+
   Route? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case RouteName.login:
         return MaterialPageRoute(
-            builder: (context) => BlocProvider(
-                  create: (context) => AuthCubit(),
+            builder: (context) => MultiBlocProvider(
+                  providers: [
+                    BlocProvider.value(value: _appCubit),
+                    BlocProvider(
+                      create: (context) => AuthCubit(),
+                    ),
+                  ],
                   child: const LoginScreen(),
                 ),
             settings: const RouteSettings(name: RouteName.login));
@@ -27,7 +35,10 @@ class AppRouter {
             settings: const RouteSettings(name: RouteName.signUp));
       case RouteName.main:
         return MaterialPageRoute(
-            builder: (context) => MainScreen(user: settings.arguments as User),
+            builder: (context) => BlocProvider.value(
+                  value: _appCubit,
+                  child: MainScreen(user: settings.arguments as User),
+                ),
             settings: const RouteSettings(name: RouteName.main));
       default:
     }

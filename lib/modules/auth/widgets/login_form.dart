@@ -1,3 +1,4 @@
+import 'package:emg_shop/bloc/app_cubit.dart';
 import 'package:emg_shop/modules/auth/widgets/auth_button.dart';
 import 'package:emg_shop/modules/auth/widgets/auth_divider.dart';
 import 'package:emg_shop/modules/auth/widgets/info_field.dart';
@@ -43,6 +44,10 @@ class LoginForm extends StatelessWidget {
 
   void _pushToMainScreen(User user, BuildContext context) {
     print("Navigate to main screen");
+    // update app state
+    final appCubit = context.read<AppCubit>();
+    appCubit.authenticate(user, "token 12345678");
+    //
     Navigator.pushNamed(context, RouteName.main, arguments: user);
   }
 
