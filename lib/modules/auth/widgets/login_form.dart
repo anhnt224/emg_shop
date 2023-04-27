@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:emg_shop/modules/auth/widgets/auth_button.dart';
 import 'package:emg_shop/modules/auth/widgets/auth_divider.dart';
 import 'package:emg_shop/modules/auth/widgets/info_field.dart';
@@ -8,10 +7,11 @@ import 'package:emg_shop/route/route_name.dart';
 import 'package:emg_shop/themes/app_colors.dart';
 import 'package:emg_shop/themes/spacing.dart';
 import 'package:emg_shop/themes/text_styles.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../models/login_resp.dart';
-import '../../../models/user.dart';
+import '../bloc/auth_cubit.dart';
 
 class LoginForm extends StatelessWidget {
   LoginForm({super.key});
@@ -26,34 +26,10 @@ class LoginForm extends StatelessWidget {
   }
 
   void _login(BuildContext context) async {
-    try {
-      const url = "http://restapi.adequateshop.com/api/AuthAccount/Login";
-      final data = {
-        "email": _usernameController.text,
-        "password": _passwordController.text
-      };
-      final dio = Dio();
-
-      final response = await dio.post(
-        url,
-        data: data,
-      );
-      if (response.data != null) {
-        final json = response.data;
-        final loginResp = LoginResp.fromJson(json);
-        if (loginResp.code != 0) {
-          //handle
-          _showErrorMessage(loginResp.message, context);
-        } else {
-          print(loginResp.user.toString());
-          _pushToMainScreen(loginResp.user!, context);
-        }
-      } else {
-        throw "Data is null";
-      }
-    } catch (e) {
-      _showErrorMessage(e.toString(), context);
-    }
+    final username = _usernameController.text;
+    final password = _passwordController.text;
+    final authCubit = context.read<AuthCubit>();
+    authCubit.login(username, password);
   }
 
   void _showErrorMessage(String message, BuildContext context) {

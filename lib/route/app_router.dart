@@ -1,8 +1,10 @@
+import 'package:emg_shop/modules/auth/bloc/auth_cubit.dart';
 import 'package:emg_shop/modules/auth/screens/login_screen.dart';
 import 'package:emg_shop/modules/auth/screens/main_screen.dart';
 import 'package:emg_shop/modules/auth/screens/sign_up_screen.dart';
 import 'package:emg_shop/route/route_name.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../models/user.dart';
 
@@ -14,7 +16,10 @@ class AppRouter {
     switch (settings.name) {
       case RouteName.login:
         return MaterialPageRoute(
-            builder: (context) => const LoginScreen(),
+            builder: (context) => BlocProvider(
+                  create: (context) => AuthCubit(),
+                  child: const LoginScreen(),
+                ),
             settings: const RouteSettings(name: RouteName.login));
       case RouteName.signUp:
         return MaterialPageRoute(
