@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "91545569872",
+    "project_id": "emg-shop",
+    "storage_bucket": "emg-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91545569872:android:6d031bcaa7b2c825ba1f55",
+        "android_client_info": {
+          "package_name": "com.emglab.emg_shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91545569872-tk9rso7botsjgq3f0keg12bu2u4a82f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLw8j6qW9XvBEznMJs_uZAuu4uru_ez_Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91545569872-tk9rso7botsjgq3f0keg12bu2u4a82f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

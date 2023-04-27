@@ -14,18 +14,20 @@ class LoginScreen extends StatelessWidget {
         children: [
           _buildBackground(),
           SafeArea(
-            child: Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  height: 150,
-                  child: const AuthTitle(
-                    title: 'Welcome',
-                    subTitle: 'Hello, let sign into your account!',
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 150,
+                    child: const AuthTitle(
+                      title: 'Welcome',
+                      subTitle: 'Hello, let sign into your account!',
+                    ),
                   ),
-                ),
-                LoginForm()
-              ],
+                  LoginForm()
+                ],
+              ),
             ),
           )
         ],

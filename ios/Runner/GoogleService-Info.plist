@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>91545569872-ponkpe8jihe9e2mi221od1208k393c44.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.91545569872-ponkpe8jihe9e2mi221od1208k393c44</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAGXxtE7b26aAXTdENTUsOx1SqWvPIUSnA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>91545569872</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.emglab.emgShop</string>
+	<key>PROJECT_ID</key>
+	<string>emg-shop</string>
+	<key>STORAGE_BUCKET</key>
+	<string>emg-shop.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:91545569872:ios:f8b26342c0c881fdba1f55</string>
+</dict>
+</plist>
