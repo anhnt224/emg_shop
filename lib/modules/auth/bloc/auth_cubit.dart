@@ -13,11 +13,11 @@ class AuthCubit extends Cubit<AuthState> {
 
     // xử lí, lấy dữ liệu
     try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: username, password: password);
-      emit(AuthStateLoginSuccess(user: credential.user!));
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: username, password: password); // request - response
+      emit(AuthStateLoginSuccess(user: credential.user!)); // update state
     } on FirebaseAuthException catch (e) {
-      emit(AuthStateFailure(error: AuthError.from(e)));
+      emit(AuthStateFailure(error: AuthError.from(e))); // update state
     }
   }
 }
